@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +9,9 @@
 <body>
 <h1>
     hello I M THE
+
 </h1>
+<img src="{% static "images/peacock.jpeg" %}" alt="My image">
 {{ var }}
 {{ num }}
 </body>
