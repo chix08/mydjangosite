@@ -18,7 +18,7 @@ from django.db import models
 # quit()
 
 class Topic(models.Model):
-    top_name = models.CharField(max_length=264, unique=True, default='SOME STRING')
+    top_name = models.CharField(max_length=264, unique=True, default='Default STRING')
 
     def __str__(self):
         return self.top_name

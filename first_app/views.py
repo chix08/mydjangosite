@@ -26,6 +26,12 @@ from first_app.models import Topic,Webpage,AccessRecord
 
 
 def home(request):
-    webpages_list = AccessRecord.objects.order_by('date')
-    date_dict = {"access_records":webpages_list}
+
+    tp = Topic()
+    webpages_list = tp.__str__()
+    webpages_list_two = AccessRecord.objects.order_by('date')
+    # print(webpages_list_two)
+    # what is objects here doing and if i call the str function
+    # then y it is not visible
+    date_dict = {"access_records":webpages_list_two}
     return render(request,'first_app/data.html',date_dict)
