@@ -13,7 +13,10 @@
 
 from django.shortcuts import render
 from django.http import HttpResponse
-from first_app.models import Topic,Webpage,AccessRecord
+from first_app.models import Topic, AccessRecord
+from . import forms as f
+
+
 # Create your views here.
 
 # Our original index view function
@@ -26,12 +29,26 @@ from first_app.models import Topic,Webpage,AccessRecord
 
 
 def home(request):
-
     tp = Topic()
     webpages_list = tp.__str__()
     webpages_list_two = AccessRecord.objects.order_by('date')
     # print(webpages_list_two)
     # what is objects here doing and if i call the str function
     # then y it is not visible
-    date_dict = {"access_records":webpages_list_two}
-    return render(request,'first_app/data.html',date_dict)
+    date_dict = {"access_records": webpages_list_two}
+    return render(request, 'first_app/data.html', date_dict)
+
+
+def formtest(request):
+    form = f.NameForm()
+    if request.method == 'POST':
+        form = f.NameForm(request.POST)
+        if form.is_valid():
+            print("Validation Success")
+            print(form.cleaned_data['your_name'])
+        print('*' * 10)
+        data = form.cleaned_data.get("form_field")
+        print(data)
+    name_dir = {'user': form}
+
+    return render(request, 'first_app/theform.html', name_dir)

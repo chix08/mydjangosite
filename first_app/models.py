@@ -1,22 +1,6 @@
 from django.db import models
 
 
-# SuperUserInformation
-# User: Jose
-# Email: training@pieriandata.com
-# Password: testpassword
-
-# CREATE SOME TEST DATA WITH SOME SHELL COMMANDS:
-
-# python manage.py shell
-
-# from first_app.models import Topic
-# print(Topic.objects.all())
-# t = Topic(top_name="Social Network")
-# t.save()
-# print(Topic.objects.all())
-# quit()
-
 class Topic(models.Model):
     top_name = models.CharField(max_length=264, unique=True, default='Default STRING')
 

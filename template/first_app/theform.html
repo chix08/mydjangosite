@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form HTML</title>
+</head>
+<body>
+<h1>Hello I am form Html</h1>
+<form name="form" method="post">
+    {% csrf_token %}
+
+    <div style="max-width:470px;">
+        <center>
+            {{user}}
+        </center>
+    </div>
+    <br>
+
+    <div style="max-width:470px;">
+        <center>
+
+            <input type="Submit" name="submit" value="Submit"/>
+
+
+        </center>
+    </div>
+
+</form>
+</body>
+</html>
