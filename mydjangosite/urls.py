@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
-from first_app import views
+from first_app import views as fviews
+from lecfourapp import views as lecviews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('first_app/', include('first_app.urls')),
-    path('form/', views.formtest, name="Forms"),
+    path('peacock/', fviews.peacock , name='peacock'),
+    path('testtemplate/', lecviews.temptest),
 ]

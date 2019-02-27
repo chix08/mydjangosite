@@ -39,16 +39,33 @@ def home(request):
     return render(request, 'first_app/data.html', date_dict)
 
 
+def peacock(request):
+    return render(request, 'first_app/temp.html', {})
+
+
 def formtest(request):
+    # form = f.NameForm()
+    # if request.method == 'POST':
+    #     form = f.NameForm(request.POST)
+    #     if form.is_valid():
+    #         print("Validation Success")
+    #         print(form.cleaned_data['your_name'])
+    #     print('*' * 10)
+    #     data = form.cleaned_data.get("form_field")
+    #     print(data)
+    # name_dir = {'user': form}
+    # 
+    # return render(request, 'first_app/theform.html', name_dir)
     form = f.NameForm()
+
     if request.method == 'POST':
         form = f.NameForm(request.POST)
-        if form.is_valid():
-            print("Validation Success")
-            print(form.cleaned_data['your_name'])
-        print('*' * 10)
-        data = form.cleaned_data.get("form_field")
-        print(data)
-    name_dir = {'user': form}
 
-    return render(request, 'first_app/theform.html', name_dir)
+        if form.is_valid():
+            # DO SOMETHING CODE
+            print("VALIDATION SUCCESS!")
+            print("NAME: " + form.cleaned_data['name'])
+            print("EMAIL: " + form.cleaned_data['email'])
+            print("TEXT: " + form.cleaned_data['text'])
+
+    return render(request, 'first_app/theform.html', {'form': form})
